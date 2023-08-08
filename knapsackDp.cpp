@@ -37,6 +37,20 @@ void printTable(int m, int n) {
 
 }
 
+void printSequence(int i, int j)
+{
+    if (i == 0 || j == 0)
+        return;
+
+    if (dp[i][j] != dp[i - 1][j])
+    {
+        printSequence(i - 1, j - weight[i - 1]);
+        cout << i << " ";
+    }
+    else if (dp[i][j] == dp[i - 1][j])
+        printSequence(i - 1, j);
+}
+
 // intput:
 // 4 5
 // 2 3 4 5
